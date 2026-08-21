@@ -23,11 +23,11 @@ st.set_page_config(
 # 请在 Streamlit Cloud -> Settings -> Secrets 中填写
 # =========================
 try:
-    DEEPSEEK_API_KEY = st.secrets["DEEPSEEK_API_KEY"]
-    JSONBIN_BIN_ID = st.secrets["6a80551ada38895dfee82522"]
-    JSONBIN_MASTER_KEY = st.secrets["$2a$10$HOZJwC6Hm8pTMwDgKyG1T.BZk7tu7IrHW/W91BLEcGuClfn.BlEH."]
-    XIANYU_LINK = st.secrets["XIANYU_LINK"]
-    ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
+    DEEPSEEK_API_KEY = ["DEEPSEEK_API_KEY"]
+    JSONBIN_BIN_ID = ["6a80551ada38895dfee82522"]
+    JSONBIN_MASTER_KEY = ["$2a$10$HOZJwC6Hm8pTMwDgKyG1T.BZk7tu7IrHW/W91BLEcGuClfn.BlEH."]
+    XIANYU_LINK = ["XIANYU_LINK"]
+    ADMIN_PASSWORD = ["ADMIN_PASSWORD"]
 except Exception:
     st.error("缺少 Secrets 配置，请到 Streamlit Cloud 的 Settings → Secrets 填写。")
     st.stop()
