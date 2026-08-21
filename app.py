@@ -24,8 +24,8 @@ st.set_page_config(
 # =========================
 try:
     DEEPSEEK_API_KEY = st.secrets["DEEPSEEK_API_KEY"]
-    JSONBIN_BIN_ID = st.secrets["JSONBIN_BIN_ID"]
-    JSONBIN_MASTER_KEY = st.secrets["JSONBIN_MASTER_KEY"]
+    JSONBIN_BIN_ID = st.secrets["6a80551ada38895dfee82522"]
+    JSONBIN_MASTER_KEY = st.secrets["$2a$10$HOZJwC6Hm8pTMwDgKyG1T.BZk7tu7IrHW/W91BLEcGuClfn.BlEH."]
     XIANYU_LINK = st.secrets["XIANYU_LINK"]
     ADMIN_PASSWORD = st.secrets["ADMIN_PASSWORD"]
 except Exception:
