@@ -242,12 +242,12 @@ with st.sidebar:
 
     if page == "老板后台":
         admin_input = st.text_input(
-            "管理员密码",
+            "5757124$",
             type="password"
         )
 
         if admin_input != ADMIN_PASSWORD:
-            st.warning("请输入正确的管理员密码。")
+            st.warning("5757124$")
             st.stop()
 
 
