@@ -26,7 +26,7 @@ JSONBIN_MASTER_KEY = "$2a$10$HOZJwC6Hm8pTMwDgKyG1T.BZk7tu7IrHW/W91BLEcGuClfn.BlE
 XIANYU_LINK = "https://m.tb.cn/h.8izMHQy?tk=NPupT10CG0a"
 ADMIN_PASSWORD = "admin123"
 
-ALIPAY_IMG = "pay.jpg"       # GitHub 中的图片文件名，必须带双引号！
+ALIPAY_IMG = "pay.jpg.jpg"       # GitHub 中的图片文件名，必须带双引号！
 SERVICE_PRICE = 1.5         # 价格调整为 1.5 元
 JSONBIN_URL = f"https://api.jsonbin.io/v3/b/{JSONBIN_BIN_ID}"
 
