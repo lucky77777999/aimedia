@@ -23,7 +23,7 @@ st.set_page_config(
 DEEPSEEK_API_KEY = "sk-EsXLbwKEHMQBIuCaW4EICzVBS80wHNwsgZPXytg9o6X9EA0o"
 JSONBIN_BIN_ID = "6a80551ada38895dfee82522"
 JSONBIN_MASTER_KEY = "$2a$10$HOZJwC6Hm8pTMwDgKyG1T.BZk7tu7IrHW/W91BLEcGuClfn.BlEH."
-XIANYU_LINK = "https://m.tb.cn/h.8izMHQy?tk=NPupT10CG0a"
+XIANYU_LINK = "https://m.tb.cn/h.8khVglY?tk=yBxtTXC3HQD CA381 "
 ADMIN_PASSWORD = "admin123"
 
 ALIPAY_IMG = "pay.jpg.jpg"       # GitHub 中的图片文件名，必须带双引号！
