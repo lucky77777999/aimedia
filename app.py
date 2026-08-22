@@ -408,7 +408,7 @@ if page == "创作大厅":
 
             try:
                 st.image(
-                    ALIPAY_IMG=pay.jpg
+                    ALIPAY_IMG="pay.jpg"
                     caption="支付宝收款码",
                     width=250
                 )
