@@ -17,30 +17,23 @@ st.set_page_config(
     layout="wide"
 )
 
-
 # =========================
-# Secrets 配置
-# 请在 Streamlit Cloud -> Settings -> Secrets 中填写
+# 配置区 (直接填入密钥，马上就能跑)
 # =========================
-try:
-    DEEPSEEK_API_KEY = ["DEEPSEEK_API_KEY"]
-    JSONBIN_BIN_ID = ["6a80551ada38895dfee82522"]
-    JSONBIN_MASTER_KEY = ["$2a$10$HOZJwC6Hm8pTMwDgKyG1T.BZk7tu7IrHW/W91BLEcGuClfn.BlEH."]
-    XIANYU_LINK = ["XIANYU_LINK"]
-    ADMIN_PASSWORD = ["ADMIN_PASSWORD"]
-except Exception:
-    st.error("缺少 Secrets 配置，请到 Streamlit Cloud 的 Settings → Secrets 填写。")
-    st.stop()
+DEEPSEEK_API_KEY = "sk-EsXLbwKEHMQBIuCaW4EICzVBS80wHNwsgZPXytg9o6X9EA0o"
+JSONBIN_BIN_ID = "6a80551ada38895dfee82522"
+JSONBIN_MASTER_KEY = "$2a$10$HOZJwC6Hm8pTMwDgKyG1T.BZk7tu7IrHW/W91BLEcGuClfn.BlEH."
+XIANYU_LINK = "https://m.tb.cn/h.8izMHQy?tk=NPupT10CG0a"
+ADMIN_PASSWORD = "admin123"
 
-ALIPAY_IMG = "pay.jpg"       # GitHub 中的图片文件名
-SERVICE_PRICE = 1.5
+ALIPAY_IMG = "pay.jpg"       # GitHub 中的图片文件名，必须带双引号！
+SERVICE_PRICE = 1.5         # 价格调整为 1.5 元
 JSONBIN_URL = f"https://api.jsonbin.io/v3/b/{JSONBIN_BIN_ID}"
 
 ai_client = OpenAI(
     api_key=DEEPSEEK_API_KEY,
     base_url="https://api.deepseek.com"
 )
-
 
 # =========================
 # 页面样式
@@ -54,7 +47,7 @@ st.markdown(
 
     .block-container {
         max-width: 900px;
-        padding-top: 1.5rem;
+        padding-top: 2rem;
     }
 
     .header-banner {
@@ -98,7 +91,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 # =========================
 # JSONBin 数据函数
 # =========================
@@ -107,7 +99,6 @@ def default_data():
         "unused_passwords": [],
         "used_passwords": []
     }
-
 
 def load_data():
     try:
@@ -132,7 +123,6 @@ def load_data():
         st.error(f"读取卡密数据失败：{exc}")
         return default_data()
 
-
 def save_data(data):
     try:
         response = requests.put(
@@ -151,7 +141,6 @@ def save_data(data):
         st.error(f"保存卡密数据失败：{exc}")
         return False
 
-
 def generate_codes(count=50):
     """生成不容易混淆的随机卡密。"""
     alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
@@ -162,7 +151,6 @@ def generate_codes(count=50):
         codes.add(code)
 
     return list(codes)
-
 
 # =========================
 # AI 函数
@@ -213,7 +201,6 @@ def call_deepseek(service, user_input):
     except Exception as exc:
         return f"AI 调用失败：{exc}"
 
-
 def generate_image(prompt):
     image_url = (
         "https://image.pollinations.ai/prompt/"
@@ -228,7 +215,6 @@ def generate_image(prompt):
     except Exception:
         return None
 
-
 # =========================
 # 侧边栏
 # =========================
@@ -242,14 +228,13 @@ with st.sidebar:
 
     if page == "老板后台":
         admin_input = st.text_input(
-            "5757124$",
+            "管理员密码",
             type="password"
         )
 
         if admin_input != ADMIN_PASSWORD:
-            st.warning("5757124$")
+            st.warning("请输入正确的管理员密码。")
             st.stop()
-
 
 # =========================
 # 创作大厅
@@ -339,8 +324,6 @@ if page == "创作大厅":
                 st.error("该密码已经使用过，请重新购买。")
 
             elif unlock_pwd in unused:
-                # 注意：JSONBin 不保证并发原子操作。
-                # 小规模测试可用，正式业务建议改用数据库事务。
                 unused.remove(unlock_pwd)
                 used.append(unlock_pwd)
 
@@ -397,7 +380,7 @@ if page == "创作大厅":
 
             if XIANYU_LINK.startswith("http"):
                 st.link_button(
-                    "👉 前往闲鱼购买 1.5 元服务",
+                    f"👉 前往闲鱼购买 {SERVICE_PRICE} 元服务",
                     XIANYU_LINK,
                     use_container_width=True
                 )
@@ -408,7 +391,7 @@ if page == "创作大厅":
 
             try:
                 st.image(
-                    ALIPAY_IMG="pay.jpg"
+                    ALIPAY_IMG,
                     caption="支付宝收款码",
                     width=250
                 )
