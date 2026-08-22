@@ -33,7 +33,7 @@ except Exception:
     st.stop()
 
 ALIPAY_IMG = "pay.jpg"       # GitHub 中的图片文件名
-SERVICE_PRICE = 2
+SERVICE_PRICE = 1.5
 JSONBIN_URL = f"https://api.jsonbin.io/v3/b/{JSONBIN_BIN_ID}"
 
 ai_client = OpenAI(
@@ -54,7 +54,7 @@ st.markdown(
 
     .block-container {
         max-width: 900px;
-        padding-top: 2rem;
+        padding-top: 1.5rem;
     }
 
     .header-banner {
@@ -378,7 +378,7 @@ if page == "创作大厅":
                 """
                 <div class="locked-box">
                     🔒 内容已锁定<br>
-                    <small>购买 2 元服务后，输入一次性密码查看完整结果。</small>
+                    <small>购买 1.5 元服务后，输入一次性密码查看完整结果。</small>
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -397,7 +397,7 @@ if page == "创作大厅":
 
             if XIANYU_LINK.startswith("http"):
                 st.link_button(
-                    "👉 前往闲鱼购买 2 元服务",
+                    "👉 前往闲鱼购买 1.5 元服务",
                     XIANYU_LINK,
                     use_container_width=True
                 )
@@ -408,7 +408,7 @@ if page == "创作大厅":
 
             try:
                 st.image(
-                    ALIPAY_IMG,
+                    ALIPAY_IMG=pay.jpg
                     caption="支付宝收款码",
                     width=250
                 )
